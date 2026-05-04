@@ -49,7 +49,16 @@ class APIRootView(APIView):
                         "history":  "GET  /api/v1/behavior/history/<user_id>/",
                     },
                 },
-                "response_agent": {"status": "pending"},
+                "response_agent": {
+                    "base_url": "/api/v1/response/",
+                    "endpoints": {
+                        "health":   "GET  /api/v1/response/health/",
+                        "process":  "POST /api/v1/response/process/",
+                        "approval": "POST /api/v1/response/approval/",
+                        "train":    "POST /api/v1/response/train/",
+                        "rl_stats": "GET  /api/v1/response/rl/stats/",
+                    },
+                },
                 "attacker_agent": {
                     "base_url": "/api/v1/attacker/",
                     "endpoints": {
@@ -82,6 +91,7 @@ urlpatterns = [
     path("api/v1/behavior/",      include("architecture.behavior_agent.api.urls")),
     path("api/v1/data/",          include("architecture.data_agent.api.urls")),
     path("api/v1/attacker/",      include("architecture.attacker_agent.api.urls")),
+    path("api/v1/response/",      include("architecture.response_agent.api.urls")),
     # Network endpoints (separate URL config from behavior_agent)
     path("api/v1/network/",       include("architecture.behavior_agent.api.network_urls")),
 ]

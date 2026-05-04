@@ -12,6 +12,7 @@ import { RiskAgentLiveOutput } from "@/components/dashboard/risk-agent-live"
 import { BehaviorAgentLive } from "@/components/dashboard/behavior-agent-live"
 import { DataAgentLive } from "@/components/dashboard/data-agent-live"
 import { AttackerAgentLive } from "@/components/dashboard/attacker-agent-live"
+import ResponseAgentTest from "@/components/dashboard/response-agent-test"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { usePipeline } from "@/lib/pipeline-store"
@@ -73,7 +74,7 @@ export default function AgentPage({ params }: AgentPageProps) {
     : liveLogs
 
   // Determine if this agent has live functionality
-  const isLiveAgent = ["risk-behavior-agent", "behavior-agent", "data-agent", "attacker-agent"].includes(slug)
+  const isLiveAgent = ["risk-behavior-agent", "behavior-agent", "data-agent", "attacker-agent", "response-agent"].includes(slug)
 
   return (
     <div className="flex h-[calc(100vh-3.5rem)] flex-col">
@@ -166,6 +167,8 @@ export default function AgentPage({ params }: AgentPageProps) {
             <DataAgentLive agentSlug={slug} onLog={handleLog} pipelineActive={isInPipeline} />
           ) : slug === "attacker-agent" ? (
             <AttackerAgentLive agentSlug={slug} onLog={handleLog} pipelineActive={isInPipeline} />
+          ) : slug === "response-agent" ? (
+            <ResponseAgentTest />
           ) : (
             <AgentOutput agentSlug={slug} />
           )}

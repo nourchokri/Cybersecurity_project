@@ -128,6 +128,11 @@ ESPRIT_API_KEY  = env("ESPRIT_API_KEY",  default="")
 ESPRIT_BASE_URL = env("ESPRIT_BASE_URL", default="https://tokenfactory.esprit.tn/api")
 ESPRIT_MODEL    = env("ESPRIT_MODEL",    default="hosted_vllm/Llama-3.1-70B-Instruct")
 
+# Response Agent LLM settings (uses same LLM as other agents)
+LLM_API_KEY = env("LLM_API_KEY", default=env("ESPRIT_API_KEY", default=""))
+LLM_BASE_URL = env("LLM_BASE_URL", default=env("ESPRIT_BASE_URL", default="https://tokenfactory.esprit.tn/api"))
+LLM_MODEL = env("LLM_MODEL", default=env("ESPRIT_MODEL", default="hosted_vllm/Llama-3.1-70B-Instruct"))
+
 # ── Behavior Agent model file paths ──────────────────────────────────────────
 # All model files and data are now organized within the Django project structure
 DATA_DIR = BASE_DIR / 'data'

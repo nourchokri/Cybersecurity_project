@@ -29,6 +29,7 @@ export interface PipelineState {
     session: SessionInput
     behaviorResult: BehaviorAnomalyResult
     riskResult?: DecisionOutput
+    responseResult?: any  // Response Agent decision
   } | null
 }
 

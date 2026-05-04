@@ -35,3 +35,6 @@ langgraph>=1.0.0
 psutil>=5.9.0
 watchdog>=3.0.0
 pywin32>=306
+
+# Response Agent dependencies
+twilio>=8.0.0  # For user approval calls (optional)

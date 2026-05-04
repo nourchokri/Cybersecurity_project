@@ -96,7 +96,9 @@ export default function HomePage() {
   }
 
   // Helper: run behavior + risk analysis on a BehaviorAnomalyResult
-  const runDownstreamAgents = async (behaviorResult: BehaviorAnomalyResult): Promise<DecisionOutput | undefined> => {
+  const runDownstreamAgents = async (behaviorResult: BehaviorAnomalyResult): Promise<{ riskResult?: DecisionOutput, responseResult?: any }> => {
+    console.log('[DEBUG] runDownstreamAgents called for event:', behaviorResult.event_id)
+    
     // Behavior agent complete, risk agent active
     setAgentStatuses(prev => ({
       ...prev,
@@ -105,6 +107,7 @@ export default function HomePage() {
     }))
 
     let riskResult: DecisionOutput | undefined
+    let responseResult: any = undefined
 
     pipeline.addLog('risk-behavior-agent', { type: 'info', message: `Analyzing event ${behaviorResult.event_id} (score: ${behaviorResult.combined_score.toFixed(4)})...` })
     try {
@@ -141,14 +144,66 @@ export default function HomePage() {
       }
 
       pipeline.addLog('risk-behavior-agent', { type: 'success', message: `Decision: ${riskResult.decision} | Risk Level: ${riskResult.risk_level} | Score: ${riskResult.adjusted_risk_score.toFixed(2)}` })
-      setAgentStatuses(prev => ({ ...prev, 'risk-behavior-agent': 'completed' }))
+      setAgentStatuses(prev => ({ ...prev, 'risk-behavior-agent': 'completed', 'response-agent': 'processing' }))
+      
+      // Call Response Agent
+      console.log('[DEBUG] Calling Response Agent with risk result:', riskResult)
+      pipeline.addLog('response-agent', { type: 'info', message: `Processing response for ${riskResult.risk_level} risk event...` })
+      try {
+        const responseApiResult = await fetch('http://localhost:8000/api/v1/response/process/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(riskResult)
+        })
+        
+        console.log('[DEBUG] Response Agent HTTP status:', responseApiResult.status)
+        
+        if (responseApiResult.ok) {
+          const responseData = await responseApiResult.json()
+          console.log('[DEBUG] Response Agent data:', responseData)
+          
+          pipeline.addLog('response-agent', { type: 'success', message: `Final Action: ${responseData.final_action} | Status: ${responseData.execution_status}` })
+          pipeline.addLog('response-agent', { type: 'info', message: `Confidence: ${(responseData.confidence * 100).toFixed(1)}%` })
+          
+          if (responseData.user_approval_required) {
+            pipeline.addLog('response-agent', { type: 'warning', message: 'User approval required - Twilio call initiated' })
+          }
+          
+          // Log decision breakdown
+          pipeline.addLog('response-agent', { type: 'info', message: `LLM Weighted: ${responseData.llm_weighted_decision.action}` })
+          pipeline.addLog('response-agent', { type: 'info', message: `LLM Direct: ${responseData.llm_direct_decision.action}` })
+          pipeline.addLog('response-agent', { type: 'info', message: `RL Model: ${responseData.rl_decision.action}` })
+          
+          // Log explanations
+          if (responseData.risk_explanation) {
+            pipeline.addLog('response-agent', { type: 'info', message: `Risk Explanation: ${responseData.risk_explanation.substring(0, 150)}...` })
+          }
+          if (responseData.action_explanation) {
+            pipeline.addLog('response-agent', { type: 'info', message: `Action Explanation: ${responseData.action_explanation.substring(0, 150)}...` })
+          }
+          
+          // Store response result to return it
+          responseResult = responseData
+          
+          setAgentStatuses(prev => ({ ...prev, 'response-agent': 'completed' }))
+        } else {
+          const errorText = await responseApiResult.text()
+          console.error('[DEBUG] Response Agent error:', errorText)
+          throw new Error(`HTTP ${responseApiResult.status}: ${errorText}`)
+        }
+      } catch (responseError) {
+        console.error("[DEBUG] Response agent failed:", responseError)
+        pipeline.addLog('response-agent', { type: 'error', message: `Response processing failed: ${responseError instanceof Error ? responseError.message : 'Unknown'}` })
+        setAgentStatuses(prev => ({ ...prev, 'response-agent': 'alert' }))
+      }
+      
     } catch (riskError) {
       console.warn("Risk agent analysis failed:", riskError)
       pipeline.addLog('risk-behavior-agent', { type: 'error', message: `Analysis failed: ${riskError instanceof Error ? riskError.message : 'Unknown'}` })
       setAgentStatuses(prev => ({ ...prev, 'risk-behavior-agent': 'alert' }))
     }
 
-    return riskResult
+    return { riskResult, responseResult }
   }
 
   // Helper: poll attacker stats until simulation finishes (max 120s)
@@ -193,8 +248,8 @@ export default function HomePage() {
 
     // Determine which agents will be part of this pipeline run
     const pipelineAgentList = pipelineSource === 'attacker-agent'
-      ? ['attacker-agent', 'behavior-agent', 'risk-behavior-agent']
-      : ['data-agent', 'behavior-agent', 'risk-behavior-agent']
+      ? ['attacker-agent', 'behavior-agent', 'risk-behavior-agent', 'response-agent']
+      : ['data-agent', 'behavior-agent', 'risk-behavior-agent', 'response-agent']
     pipeline.startPipeline(pipelineAgentList)
 
     const resetStatuses: Record<string, AgentStatus> = {
@@ -255,7 +310,7 @@ export default function HomePage() {
             pipeline.addLog('behavior-agent', { type: 'success', message: `Anomaly score: ${behaviorResult.combined_score.toFixed(4)} | Verdict: ${behaviorResult.detection_agent_analysis.verdict}` })
             pipeline.addLog('behavior-agent', { type: behaviorResult.flagged ? 'warning' : 'success', message: `Flagged: ${behaviorResult.flagged} | Confidence: ${behaviorResult.confidence}` })
 
-            const riskResult = await runDownstreamAgents(behaviorResult)
+            const { riskResult, responseResult } = await runDownstreamAgents(behaviorResult)
 
             const displaySession: SessionInput = {
               user_id: behaviorResult.user_id,
@@ -269,7 +324,7 @@ export default function HomePage() {
               visited_jobsearch_domain: 0, simulated: true
             }
 
-            setPipelineResult({ session: displaySession, behaviorResult, riskResult })
+            setPipelineResult({ session: displaySession, behaviorResult, riskResult, responseResult })
           } else {
             setAgentStatuses(prev => ({ ...prev, 'behavior-agent': 'completed', 'risk-behavior-agent': 'completed' }))
             pipeline.addLog('behavior-agent', { type: 'warning', message: `No scorable sessions (${a2aResult.behavior_result.skipped_count} skipped)` })
@@ -465,7 +520,8 @@ export default function HomePage() {
           }
 
           console.log('[DEBUG] Setting real pipelineResult')
-          setPipelineResult({ session: dummySession, behaviorResult, riskResult })
+          const { riskResult: realRiskResult, responseResult: realResponseResult } = await runDownstreamAgents(behaviorResult)
+          setPipelineResult({ session: dummySession, behaviorResult, riskResult: realRiskResult, responseResult: realResponseResult })
 
         } else {
           // TEST SESSION MODE
@@ -485,9 +541,9 @@ export default function HomePage() {
           pipeline.addLog('behavior-agent', { type: 'success', message: `Score: ${behaviorResult.combined_score.toFixed(4)} | Verdict: ${behaviorResult.detection_agent_analysis.verdict}` })
           pipeline.addLog('behavior-agent', { type: behaviorResult.flagged ? 'warning' : 'success', message: `Flagged: ${behaviorResult.flagged} | Confidence: ${behaviorResult.confidence}` })
 
-          const riskResult = await runDownstreamAgents(behaviorResult)
+          const { riskResult, responseResult } = await runDownstreamAgents(behaviorResult)
 
-          setPipelineResult({ session, behaviorResult, riskResult })
+          setPipelineResult({ session, behaviorResult, riskResult, responseResult })
         }
       }
 
@@ -901,6 +957,77 @@ export default function HomePage() {
                     </div>
                   )}
                 </div>
+
+                {/* Response Agent Results */}
+                {pipelineResult.responseResult && (
+                  <div className="space-y-3">
+                    <h4 className="font-mono text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                      Response Agent - Final Decision
+                    </h4>
+                    <div className="rounded border border-border bg-muted/30 p-3 space-y-3">
+                      {/* Decision Summary */}
+                      <div className="grid grid-cols-3 gap-2 text-xs">
+                        <div>
+                          <span className="font-mono text-[9px] uppercase text-muted-foreground">Final Action</span>
+                          <p className="font-mono font-medium text-lg">{pipelineResult.responseResult.final_action}</p>
+                        </div>
+                        <div>
+                          <span className="font-mono text-[9px] uppercase text-muted-foreground">Execution Status</span>
+                          <p className="font-mono font-medium">{pipelineResult.responseResult.execution_status}</p>
+                        </div>
+                        <div>
+                          <span className="font-mono text-[9px] uppercase text-muted-foreground">Confidence</span>
+                          <p className="font-mono font-medium">{(pipelineResult.responseResult.confidence * 100).toFixed(1)}%</p>
+                        </div>
+                      </div>
+
+                      {/* Decision Breakdown */}
+                      <div className="border-t border-border pt-2">
+                        <span className="font-mono text-[9px] uppercase text-muted-foreground">Decision Methods</span>
+                        <div className="grid grid-cols-3 gap-2 mt-1 text-xs">
+                          <div className="rounded bg-muted/50 p-2">
+                            <p className="font-mono text-[9px] text-muted-foreground">LLM Weighted</p>
+                            <p className="font-mono font-medium">{pipelineResult.responseResult.llm_weighted_decision.action}</p>
+                          </div>
+                          <div className="rounded bg-muted/50 p-2">
+                            <p className="font-mono text-[9px] text-muted-foreground">LLM Direct</p>
+                            <p className="font-mono font-medium">{pipelineResult.responseResult.llm_direct_decision.action}</p>
+                          </div>
+                          <div className="rounded bg-muted/50 p-2">
+                            <p className="font-mono text-[9px] text-muted-foreground">RL Model</p>
+                            <p className="font-mono font-medium">{pipelineResult.responseResult.rl_decision.action}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Explanations */}
+                      <div className="border-t border-border pt-2 space-y-2">
+                        <div>
+                          <span className="font-mono text-[9px] uppercase text-muted-foreground">Risk Explanation</span>
+                          <p className="text-xs leading-relaxed mt-1">{pipelineResult.responseResult.risk_explanation}</p>
+                        </div>
+                        <div>
+                          <span className="font-mono text-[9px] uppercase text-muted-foreground">Action Explanation</span>
+                          <p className="text-xs leading-relaxed mt-1">{pipelineResult.responseResult.action_explanation}</p>
+                        </div>
+                      </div>
+
+                      {/* User Approval Status */}
+                      {pipelineResult.responseResult.user_approval_required && (
+                        <div className="border-t border-border pt-2">
+                          <div className="rounded bg-yellow-500/10 border border-yellow-500/30 p-2">
+                            <p className="font-mono text-[9px] uppercase text-yellow-600">⚠ User Approval Required</p>
+                            {pipelineResult.responseResult.twilio_call_sid && (
+                              <p className="text-xs text-muted-foreground mt-1">
+                                Twilio Call: {pipelineResult.responseResult.twilio_call_sid}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Session Details */}

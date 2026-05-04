@@ -1,0 +1,1 @@
+"""Response Agent domain layer."""
