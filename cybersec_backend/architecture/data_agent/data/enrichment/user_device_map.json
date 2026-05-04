@@ -1,0 +1,31 @@
+{
+    "users": {
+        "U001": {
+            "username": "admin_user",
+            "department": "IT",
+            "role": "System Administrator",
+            "privilege_level": "high",
+            "devices": ["WORKSTATION-01", "SERVER-DC01"]
+        },
+        "U002": {
+            "username": "marketing_user",
+            "department": "Marketing",
+            "role": "Marketing Analyst",
+            "privilege_level": "low",
+            "devices": ["LAPTOP-MKT-01"]
+        },
+        "U003": {
+            "username": "finance_user",
+            "department": "Finance",
+            "role": "Financial Analyst",
+            "privilege_level": "medium",
+            "devices": ["WORKSTATION-FIN-01"]
+        }
+    },
+    "devices": {
+        "WORKSTATION-01": { "type": "workstation", "os": "Windows 11", "criticality": "high" },
+        "SERVER-DC01": { "type": "domain_controller", "os": "Windows Server 2022", "criticality": "critical" },
+        "LAPTOP-MKT-01": { "type": "laptop", "os": "Windows 11", "criticality": "low" },
+        "WORKSTATION-FIN-01": { "type": "workstation", "os": "Windows 10", "criticality": "high" }
+    }
+}

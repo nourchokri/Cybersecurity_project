@@ -1,0 +1,48 @@
+{
+  "events": [
+    {
+      "event_id": "evt-test-0001",
+      "monitor": "A",
+      "user_id": "MOH0273",
+      "entity_id": "{L9G8-J9QE34VM-2834VDPB}",
+      "timestamp": "2010-01-02T07:23:14",
+      "score": 0.87,
+      "if_score": 0.91,
+      "dim_scores": {
+        "time": 1.0,
+        "device": 1.0,
+        "volume": 1.0,
+        "sensitivity": 1.0
+      },
+      "triggered_rules": [
+        "login_outside_normal_hours",
+        "unknown_device",
+        "file_download_volume_extreme",
+        "high_sensitivity_file_access",
+        "usb_device_connected",
+        "threat_domain_visited"
+      ],
+      "raw_features": {
+        "hour_of_day": 2.0,
+        "hour_deviation": 7.2,
+        "is_weekend": 0.0,
+        "is_outside_hours": 1.0,
+        "is_new_device": 1.0,
+        "file_count": 200.0,
+        "file_count_zscore": 63.2,
+        "files_per_minute": 40.0,
+        "max_sensitivity": 2.0,
+        "sensitivity_above_ceil": 1.0,
+        "email_count": 0.0,
+        "has_ext_email": 0.0,
+        "usb_connected": 1.0,
+        "visited_threat_domain": 1.0,
+        "recent_score_trend": 0.08,
+        "file_count_peer_zscore": 42.7
+      },
+      "simulated": false,
+      "confidence": "high",
+      "cold_start": false
+    }
+  ]
+}

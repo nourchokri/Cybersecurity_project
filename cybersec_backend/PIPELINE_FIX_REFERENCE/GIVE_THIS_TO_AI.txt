@@ -1,0 +1,59 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    PIPELINE FIX - PROMPT FOR AI
+═══════════════════════════════════════════════════════════════════════════════
+
+PROBLEM:
+--------
+In the aa-main project, when I click "Start Pipeline with Real Data" in the 
+overview page, events are collected but NOT forwarded to the Behavior Agent 
+for analysis. The pipeline stops after collection.
+
+WORKING REFERENCE:
+------------------
+I have provided a complete working implementation in:
+    cybersec_backend/PIPELINE_FIX_REFERENCE/
+
+This folder contains working implementation files from a version where the 
+pipeline works correctly.
+
+YOUR TASK:
+----------
+Fix the aa-main project so that the pipeline works end-to-end:
+1. Collect events from collectors
+2. Extract events from collection results
+3. Aggregate events into sessions
+4. Send sessions to Behavior Agent via HTTP
+5. Return combined results to frontend
+
+INSTRUCTIONS:
+-------------
+1. Read cybersec_backend/PIPELINE_FIX_REFERENCE/START_HERE.md first
+2. Follow cybersec_backend/PIPELINE_FIX_REFERENCE/INSTRUCTIONS_FOR_AI.md step-by-step
+3. Use the reference files as working examples
+4. Test the pipeline after implementation
+
+KEY FILES TO REFERENCE:
+-----------------------
+All files are in: cybersec_backend/PIPELINE_FIX_REFERENCE/
+
+- api/views.py - Pipeline endpoint
+- application/data_service.py - Orchestration logic
+- application/session_aggregator.py - Event-to-session conversion
+- integrations/behavior_agent_client.py - HTTP client
+
+EXPECTED RESULT:
+----------------
+After fix, clicking "Start Pipeline with Real Data" should:
+✅ Collect events
+✅ Create sessions from events
+✅ Send sessions to Behavior Agent
+✅ Display analysis results (X sessions analyzed, Y flagged)
+
+START HERE:
+-----------
+Open: cybersec_backend/PIPELINE_FIX_REFERENCE/START_HERE.md
+
+OR for complete detailed prompt:
+Open: cybersec_backend/PIPELINE_FIX_REFERENCE/COMPLETE_PROMPT_FOR_AI.md
+
+═══════════════════════════════════════════════════════════════════════════════

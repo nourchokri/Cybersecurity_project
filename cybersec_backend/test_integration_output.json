@@ -1,0 +1,88 @@
+{
+  "event_id": "AAM0658_2010-10-21T00:18:00",
+  "timestamp": "2010-10-21T00:18:00",
+  "source": [
+    "user_behavior"
+  ],
+  "user_anomaly_score": 1.0,
+  "network_anomaly_score": null,
+  "combined_score": 1.0,
+  "user_id": "AAM0658",
+  "entity_id": null,
+  "dimension_scores": {
+    "time": 0.0,
+    "device": 1.0,
+    "volume": 1.0,
+    "sensitivity": 1.0
+  },
+  "triggered_rules": [
+    "unknown_device",
+    "file_download_volume_extreme",
+    "high_sensitivity_file_access",
+    "usb_device_connected",
+    "exfil_domain_visited",
+    "usb_first_time"
+  ],
+  "network_attack_category": null,
+  "correlation": {
+    "correlated": false,
+    "time_delta_seconds": null,
+    "threat_classification": "insider_threat"
+  },
+  "explanation": "The Isolation Forest model scored user AAM0658 at 1.000, indicating a high degree of anomaly, and flagged the session due to multiple unusual activities, including use of an unknown device, extreme file download volume, access to highly sensitive files, connection of a USB device, and visit to an exfiltration domain. This pattern of behavior suggests a potential data exfiltration scenario,",
+  "baseline_age_days": 23,
+  "confidence": "high",
+  "cold_start": false,
+  "simulated": false,
+  "flagged": true,
+  "if_score": 1.0,
+  "detection_agent_analysis": {
+    "model": "hosted_vllm/Llama-3.1-70B-Instruct",
+    "llm_used": true,
+    "analyst_note": "The Isolation Forest model scored user AAM0658 at 1.000, indicating a high degree of anomaly, and flagged the session due to multiple unusual activities, including use of an unknown device, extreme file download volume, access to highly sensitive files, connection of a USB device, and visit to an exfiltration domain. This pattern of behavior suggests a potential data exfiltration scenario,",
+    "scoring_mode": "IF-only",
+    "score": 1.0,
+    "threshold": 0.4,
+    "verdict": "CRITICAL",
+    "triggered_signals": [
+      "unknown_device",
+      "file_download_volume_extreme",
+      "high_sensitivity_file_access",
+      "usb_device_connected",
+      "exfil_domain_visited",
+      "usb_first_time"
+    ],
+    "dimension_breakdown": {
+      "time": 0.0,
+      "device": 1.0,
+      "volume": 1.0,
+      "sensitivity": 1.0
+    },
+    "session_summary": {
+      "login_hour": 0,
+      "outside_hours": true,
+      "file_count": 200,
+      "usb_connected": true,
+      "usb_first_time": true,
+      "external_email": false,
+      "exfil_domain": true,
+      "jobsearch_domain": false,
+      "duration_minutes": 5.0
+    },
+    "baseline_context": {
+      "observation_days": 23,
+      "cold_start": false,
+      "confidence": "high",
+      "department": "3 - FieldService",
+      "recent_scores": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  }
+}

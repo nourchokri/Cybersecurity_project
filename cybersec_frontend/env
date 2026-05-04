@@ -1,0 +1,15 @@
+ESPRIT_API_KEY=sk-99f9c57b76a24384bb38d1380de94de6
+SUPABASE_DB_URL=postgresql://postgres.qujvxycroxzejicnlplf:jESiRypIcdsNhWd9@aws-1-eu-north-1.pooler.supabase.com:5432/postgres
+DEBUG=True
+ESPRIT_BASE_URL=https://tokenfactory.esprit.tn/api
+ESPRIT_MODEL=hosted_vllm/Llama-3.1-70B-Instruct
+
+# Data Agent LLM Configuration
+LLM_API_KEY=sk-99f9c57b76a24384bb38d1380de94de6
+LLM_BASE_URL=https://tokenfactory.esprit.tn/api
+LLM_MODEL=hosted_vllm/Llama-3.1-70B-Instruct
+
+# Behavior Agent - Risk Agent Forwarding
+# Set to False to disable automatic forwarding to Team 3 (faster pipeline, no timeout warnings)
+# Set to True for full pipeline with risk analysis (default, timeouts are non-blocking)
+ENABLE_RISK_AGENT_FORWARDING=True

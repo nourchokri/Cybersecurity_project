@@ -1,0 +1,5313 @@
+{
+  "schema_version": "1.0",
+  "description": "CERT r4.2 insider threat attack patterns (all scenarios)",
+  "last_updated": "2026-03-27",
+  "attack_patterns": [
+    {
+      "id": "cert_r42_s1_aam0658",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10642,
+            -7095
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -10301,
+            -6867
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -10292,
+            -6861
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -10292,
+            -6861
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10290,
+            -6860
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -380,
+            -253
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -279,
+            -186
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -272,
+            -181
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -27,
+            -18
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "AAM0658",
+        "start_date": "10/23/2010 01:34:19",
+        "end_date": "10/29/2010 05:23:28",
+        "details_file": "r4.2-1-AAM0658.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_ajr0932",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -12589,
+            -8392
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -12529,
+            -8353
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -12529,
+            -8353
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -12529,
+            -8353
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -12470,
+            -8313
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -162,
+            -108
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -123,
+            -82
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -94,
+            -63
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -79,
+            -52
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "AJR0932",
+        "start_date": "09/10/2010 19:12:01",
+        "end_date": "09/18/2010 02:02:51",
+        "details_file": "r4.2-1-AJR0932.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_bdv0168",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -17951,
+            -11967
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -17873,
+            -11915
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -17872,
+            -11914
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -17872,
+            -11914
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -17856,
+            -11904
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -7069,
+            -4712
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -6945,
+            -4630
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -6941,
+            -4627
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -6939,
+            -4626
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -6935,
+            -4623
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "BDV0168",
+        "start_date": "07/30/2010 19:56:44",
+        "end_date": "08/10/2010 05:16:41",
+        "details_file": "r4.2-1-BDV0168.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_bih0745",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -78,
+            -52
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -17,
+            -11
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -16,
+            -11
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -13,
+            -9
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "BIH0745",
+        "start_date": "07/13/2010 20:15:23",
+        "end_date": "07/13/2010 21:20:44",
+        "details_file": "r4.2-1-BIH0745.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_bls0678",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -15806,
+            -10537
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -15697,
+            -10465
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -15696,
+            -10464
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -15695,
+            -10463
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -15628,
+            -10418
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -806,
+            -537
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -714,
+            -476
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -704,
+            -469
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -699,
+            -466
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "BLS0678",
+        "start_date": "09/21/2010 01:16:22",
+        "end_date": "09/30/2010 04:48:19",
+        "details_file": "r4.2-1-BLS0678.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_btl0226",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -12693,
+            -8462
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -12652,
+            -8435
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -12651,
+            -8434
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -12646,
+            -8431
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -12616,
+            -8411
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -3788,
+            -2525
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -3741,
+            -2494
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -3733,
+            -2488
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -3727,
+            -2485
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -3704,
+            -2469
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "BTL0226",
+        "start_date": "10/06/2010 22:25:52",
+        "end_date": "10/14/2010 06:43:29",
+        "details_file": "r4.2-1-BTL0226.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_cah0936",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -3163,
+            -2108
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -3077,
+            -2051
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -3076,
+            -2050
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -3075,
+            -2050
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -3070,
+            -2046
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -143,
+            -95
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -88,
+            -58
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -88,
+            -58
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -87,
+            -58
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "CAH0936",
+        "start_date": "08/11/2010 04:00:08",
+        "end_date": "08/12/2010 23:56:19",
+        "details_file": "r4.2-1-CAH0936.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_dch0843",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -33,
+            -22
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -16,
+            -11
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -8,
+            -5
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -5,
+            -3
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "DCH0843",
+        "start_date": "02/04/2011 07:08:00",
+        "end_date": "02/04/2011 07:36:05",
+        "details_file": "r4.2-1-DCH0843.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_ehb0824",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10607,
+            -7071
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -10566,
+            -7044
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -10562,
+            -7041
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -10560,
+            -7040
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10293,
+            -6862
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -3101,
+            -2067
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -3071,
+            -2047
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -3069,
+            -2046
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -3033,
+            -2022
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -2994,
+            -1996
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "EHB0824",
+        "start_date": "07/22/2010 21:48:43",
+        "end_date": "07/29/2010 01:08:41",
+        "details_file": "r4.2-1-EHB0824.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_ehd0584",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -11712,
+            -7808
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -11668,
+            -7778
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -11657,
+            -7771
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -11647,
+            -7765
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -11607,
+            -7738
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -1686,
+            -1124
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -1659,
+            -1106
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1650,
+            -1100
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -1632,
+            -1088
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -1452,
+            -968
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "EHD0584",
+        "start_date": "10/02/2010 03:46:16",
+        "end_date": "10/08/2010 22:26:26",
+        "details_file": "r4.2-1-EHD0584.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_fmg0527",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10610,
+            -7073
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -10587,
+            -7058
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -10580,
+            -7053
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -10577,
+            -7051
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10545,
+            -7030
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -121,
+            -81
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -110,
+            -73
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -110,
+            -73
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -105,
+            -70
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "FMG0527",
+        "start_date": "01/05/2011 21:53:29",
+        "end_date": "01/12/2011 01:15:35",
+        "details_file": "r4.2-1-FMG0527.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_ftm0406",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -11664,
+            -7776
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -11651,
+            -7767
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -11651,
+            -7767
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -11651,
+            -7767
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -11644,
+            -7763
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -31,
+            -20
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -8,
+            -5
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2,
+            -1
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -2,
+            -1
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "FTM0406",
+        "start_date": "11/25/2010 06:35:11",
+        "end_date": "12/02/2010 00:35:19",
+        "details_file": "r4.2-1-FTM0406.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_ghl0460",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -48,
+            -32
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -29,
+            -19
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -15,
+            -10
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -2,
+            -1
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "GHL0460",
+        "start_date": "11/09/2010 06:28:40",
+        "end_date": "11/09/2010 07:08:45",
+        "details_file": "r4.2-1-GHL0460.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_hjb0742",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10293,
+            -6862
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -10230,
+            -6820
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -10226,
+            -6817
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -10223,
+            -6815
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10213,
+            -6809
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -355,
+            -236
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -50,
+            -33
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -28,
+            -19
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -1,
+            -1
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            0,
+            0
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "HJB0742",
+        "start_date": "11/19/2010 05:53:16",
+        "end_date": "11/25/2010 04:51:16",
+        "details_file": "r4.2-1-HJB0742.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s1_jmb0308",
+      "name": "CERT r4.2 - USB Exfiltration + Wikileaks",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 1",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -12156,
+            -8104
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -12128,
+            -8085
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -12093,
+            -8062
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -12065,
+            -8043
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -11940,
+            -7960
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -10212,
+            -6808
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -10110,
+            -6740
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -10036,
+            -6691
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -10020,
+            -6680
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -9999,
+            -6666
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 1,
+        "user": "JMB0308",
+        "start_date": "07/14/2010 00:56:15",
+        "end_date": "07/21/2010 01:46:49",
+        "details_file": "r4.2-1-JMB0308.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_aaf0535",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -92072,
+            -61381
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91950,
+            -61300
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91916,
+            -61277
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91898,
+            -61265
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91889,
+            -61259
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91809,
+            -61206
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91772,
+            -61181
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91562,
+            -61041
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -90310,
+            -60206
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -90308,
+            -60205
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "AAF0535",
+        "start_date": "06/28/2010 08:51:08",
+        "end_date": "08/20/2010 15:38:04",
+        "details_file": "r4.2-2-AAF0535.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_abc0174",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -100346,
+            -66897
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -100325,
+            -66883
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -100310,
+            -66873
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -99053,
+            -66035
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -99031,
+            -66020
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -99015,
+            -66010
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98927,
+            -65951
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98921,
+            -65947
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98866,
+            -65910
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98865,
+            -65910
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "ABC0174",
+        "start_date": "10/27/2010 14:11:03",
+        "end_date": "12/24/2010 15:53:02",
+        "details_file": "r4.2-2-ABC0174.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_akr0057",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97487,
+            -64991
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97418,
+            -64945
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97411,
+            -64941
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96804,
+            -64536
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95734,
+            -63823
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95715,
+            -63810
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95709,
+            -63806
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95663,
+            -63775
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95656,
+            -63770
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95477,
+            -63651
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "AKR0057",
+        "start_date": "10/04/2010 08:48:26",
+        "end_date": "11/29/2010 18:48:10",
+        "details_file": "r4.2-2-AKR0057.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_ccl0068",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96702,
+            -64468
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96386,
+            -64257
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96269,
+            -64179
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96243,
+            -64162
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96103,
+            -64069
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -94947,
+            -63298
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -94918,
+            -63278
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -94783,
+            -63188
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -94724,
+            -63149
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -94686,
+            -63124
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "CCL0068",
+        "start_date": "12/27/2010 09:20:16",
+        "end_date": "02/21/2011 08:25:17",
+        "details_file": "r4.2-2-CCL0068.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_cej0109",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -92024,
+            -61349
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91956,
+            -61304
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91897,
+            -61264
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91873,
+            -61248
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91758,
+            -61172
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91656,
+            -61104
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91540,
+            -61026
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -90451,
+            -60301
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -90417,
+            -60278
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -90265,
+            -60176
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "CEJ0109",
+        "start_date": "02/07/2011 11:16:58",
+        "end_date": "04/01/2011 17:23:43",
+        "details_file": "r4.2-2-CEJ0109.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_cqw0652",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95875,
+            -63917
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95856,
+            -63904
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95788,
+            -63859
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95650,
+            -63766
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95588,
+            -63725
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95585,
+            -63723
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95399,
+            -63599
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95330,
+            -63553
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -95176,
+            -63451
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -90591,
+            -60394
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "CQW0652",
+        "start_date": "02/18/2011 09:22:22",
+        "end_date": "04/14/2011 20:58:56",
+        "details_file": "r4.2-2-CQW0652.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_dib0285",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -84731,
+            -56487
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -84632,
+            -56421
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -83436,
+            -55624
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -83102,
+            -55401
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -81756,
+            -54504
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -81755,
+            -54503
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -81735,
+            -54490
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -81648,
+            -54432
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -81601,
+            -54401
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -81592,
+            -54395
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "DIB0285",
+        "start_date": "07/26/2010 16:23:45",
+        "end_date": "09/13/2010 17:13:29",
+        "details_file": "r4.2-2-DIB0285.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_drr0162",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -93939,
+            -62626
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -93707,
+            -62471
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -93656,
+            -62437
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -93653,
+            -62435
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -92157,
+            -61438
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91806,
+            -61204
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91718,
+            -61145
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91676,
+            -61117
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -91556,
+            -61037
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -87004,
+            -58003
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "DRR0162",
+        "start_date": "11/11/2010 07:01:17",
+        "end_date": "01/04/2011 15:43:53",
+        "details_file": "r4.2-2-DRR0162.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_edb0714",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98734,
+            -65823
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98488,
+            -65658
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98393,
+            -65595
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98381,
+            -65587
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97217,
+            -64811
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97146,
+            -64764
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96984,
+            -64656
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96951,
+            -64634
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96942,
+            -64628
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -96859,
+            -64572
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "EDB0714",
+        "start_date": "10/18/2010 10:58:12",
+        "end_date": "12/14/2010 14:17:02",
+        "details_file": "r4.2-2-EDB0714.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s2_egd0132",
+      "name": "CERT r4.2 - Job Hunting + USB Theft",
+      "category": "data_exfiltration",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1052.001",
+      "severity": "high",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 2",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -99028,
+            -66018
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98889,
+            -65926
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98786,
+            -65857
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98609,
+            -65739
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98492,
+            -65661
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -98459,
+            -65639
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97229,
+            -64819
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97214,
+            -64809
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97209,
+            -64806
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -97137,
+            -64758
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 2,
+        "user": "EGD0132",
+        "start_date": "08/02/2010 10:01:20",
+        "end_date": "09/28/2010 17:24:42",
+        "details_file": "r4.2-2-EGD0132.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s3_bbs0039",
+      "name": "CERT r4.2 - Keylogger + Impersonation",
+      "category": "credential_access",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1056.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 3",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2357,
+            -1571
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2339,
+            -1559
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2283,
+            -1522
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2206,
+            -1470
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2128,
+            -1419
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2120,
+            -1413
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2117,
+            -1411
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -2038,
+            -1358
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "file_access",
+          "event_category": "file",
+          "action": "write",
+          "resource_patterns": [
+            "E:\\GGX5KL22.exe"
+          ],
+          "time_offset_minutes": [
+            -2033,
+            -1355
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "is_usb": true,
+            "file_size_bytes": [
+              1000000,
+              10000000
+            ]
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -2026,
+            -1351
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 3,
+        "user": "BBS0039",
+        "start_date": "08/12/2010 10:24:05",
+        "end_date": "08/13/2010 19:08:58",
+        "details_file": "r4.2-3-BBS0039.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s3_bss0369",
+      "name": "CERT r4.2 - Keylogger + Impersonation",
+      "category": "credential_access",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1056.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 3",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2179,
+            -1452
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2176,
+            -1450
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2107,
+            -1404
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2092,
+            -1394
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1998,
+            -1332
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -1992,
+            -1328
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "file_access",
+          "event_category": "file",
+          "action": "write",
+          "resource_patterns": [
+            "E:\\TBDZA9ME.exe"
+          ],
+          "time_offset_minutes": [
+            -1988,
+            -1325
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "is_usb": true,
+            "file_size_bytes": [
+              1000000,
+              10000000
+            ]
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -1983,
+            -1322
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "logon",
+          "event_category": "system",
+          "action": "logon",
+          "resource_patterns": [
+            ""
+          ],
+          "time_offset_minutes": [
+            -1693,
+            -1128
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -1681,
+            -1121
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 3,
+        "user": "BSS0369",
+        "start_date": "09/30/2010 13:31:56",
+        "end_date": "10/01/2010 19:48:03",
+        "details_file": "r4.2-3-BSS0369.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s3_cca0046",
+      "name": "CERT r4.2 - Keylogger + Impersonation",
+      "category": "credential_access",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1056.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 3",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2565,
+            -1710
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2271,
+            -1514
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2190,
+            -1460
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2139,
+            -1426
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2103,
+            -1402
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2099,
+            -1399
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2098,
+            -1399
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2095,
+            -1397
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2092,
+            -1394
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -2092,
+            -1394
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 3,
+        "user": "CCA0046",
+        "start_date": "10/14/2010 08:23:18",
+        "end_date": "10/15/2010 20:01:27",
+        "details_file": "r4.2-3-CCA0046.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s3_csc0217",
+      "name": "CERT r4.2 - Keylogger + Impersonation",
+      "category": "credential_access",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1056.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 3",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2434,
+            -1622
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2223,
+            -1482
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2182,
+            -1454
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -1968,
+            -1312
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1950,
+            -1300
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1948,
+            -1298
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1934,
+            -1289
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Connect"
+          ],
+          "time_offset_minutes": [
+            -1901,
+            -1267
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "file_access",
+          "event_category": "file",
+          "action": "write",
+          "resource_patterns": [
+            "E:\\6UQIYOYG.exe"
+          ],
+          "time_offset_minutes": [
+            -1898,
+            -1265
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "is_usb": true,
+            "file_size_bytes": [
+              1000000,
+              10000000
+            ]
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "device_connect",
+          "event_category": "device",
+          "action": "connect",
+          "resource_patterns": [
+            "USB_DEVICE_Disconnect"
+          ],
+          "time_offset_minutes": [
+            -1896,
+            -1264
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "device_type": "usb_storage"
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 3,
+        "user": "CSC0217",
+        "start_date": "06/10/2010 07:54:10",
+        "end_date": "06/11/2010 17:42:48",
+        "details_file": "r4.2-3-CSC0217.csv"
+      }
+    },
+    {
+      "id": "cert_r42_s3_gtd0219",
+      "name": "CERT r4.2 - Keylogger + Impersonation",
+      "category": "credential_access",
+      "subcategory": "cert_dataset",
+      "mitre_technique": "T1056.001",
+      "severity": "critical",
+      "description": "Real insider threat from CERT r4.2 dataset - Scenario 3",
+      "sequence": [
+        {
+          "step": 1,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2356,
+            -1571
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 2,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2223,
+            -1482
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 3,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2154,
+            -1436
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 4,
+          "event_type": "email_sent",
+          "event_category": "email",
+          "action": "send",
+          "resource_patterns": [
+            "email_to_external"
+          ],
+          "time_offset_minutes": [
+            -2033,
+            -1355
+          ],
+          "metadata": {
+            "sensitivity_level": 1,
+            "external_recipient_count": 1,
+            "attachment_count": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1983,
+            -1322
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 6,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1982,
+            -1321
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 7,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1981,
+            -1321
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 8,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1977,
+            -1318
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 9,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1973,
+            -1315
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        },
+        {
+          "step": 10,
+          "event_type": "http_request",
+          "event_category": "web",
+          "action": "request",
+          "resource_patterns": [
+            "http://external_site/*"
+          ],
+          "time_offset_minutes": [
+            -1972,
+            -1315
+          ],
+          "metadata": {
+            "sensitivity_level": 1
+          }
+        }
+      ],
+      "source": "cert_r4.2",
+      "cert_metadata": {
+        "scenario": 3,
+        "user": "GTD0219",
+        "start_date": "06/17/2010 09:06:37",
+        "end_date": "06/18/2010 17:50:42",
+        "details_file": "r4.2-3-GTD0219.csv"
+      }
+    }
+  ]
+}

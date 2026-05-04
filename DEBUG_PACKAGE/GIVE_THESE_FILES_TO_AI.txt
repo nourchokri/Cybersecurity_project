@@ -1,0 +1,98 @@
+===============================================================================
+FILES TO GIVE TO ANOTHER AI FOR DEBUGGING
+===============================================================================
+
+PROBLEM:
+--------
+Frontend not displaying results from Behavior Agent → Risk Agent workflow.
+Backend is working correctly, but the UI doesn't show the results.
+
+Working Project: project_classe-main
+Broken Project:  cybersec_project_copy
+
+
+DOCUMENTATION FILES (Give all of these):
+----------------------------------------
+1. DEBUG_PACKAGE_INDEX.md              - Overview and navigation
+2. README_FOR_OTHER_AI.md              - Start here instructions
+3. QUICK_START_DEBUG.md                - 5-minute diagnostic
+4. COMPLETE_DEBUG_PACKAGE.md           - Full technical reference
+5. FRONTEND_DISPLAY_DEBUG_FILES.md     - Key files overview
+6. COMPARE_PROJECTS.md                 - Comparison guide
+
+
+WORKING CODE FILES (For reference):
+-----------------------------------
+Frontend (from project_classe-main/cybersec_frontend/):
+  - lib/api.ts
+  - components/dashboard/behavior-agent-live.tsx
+  - components/dashboard/risk-agent-live.tsx
+  - app/agents/[slug]/page.tsx
+  - .env.local
+
+Backend (from project_classe-main/cybersec_backend/):
+  - architecture/behavior_agent/api/views.py
+  - architecture/risk_decision_agent/api/views.py
+  - config/urls.py
+
+
+INSTRUCTIONS FOR THE OTHER AI:
+-------------------------------
+1. Start by reading DEBUG_PACKAGE_INDEX.md
+2. Then read README_FOR_OTHER_AI.md for step-by-step instructions
+3. Use QUICK_START_DEBUG.md for quick diagnostic tests
+4. Refer to COMPLETE_DEBUG_PACKAGE.md for technical details
+5. Compare files between working and broken projects
+6. Identify the issue and provide a fix
+
+
+QUICK CONTEXT:
+--------------
+- The backend workflow is working (Data → Behavior → Risk agents)
+- The frontend makes API calls successfully
+- The backend returns correct JSON responses
+- BUT the frontend doesn't display the results in the UI
+- Most likely issues:
+  1. Environment variable NEXT_PUBLIC_API_URL not set (60%)
+  2. Component state not updating (20%)
+  3. Response structure mismatch (10%)
+  4. Component not rendering (5%)
+  5. CORS issues (5%)
+
+
+WHAT THE AI SHOULD DO:
+----------------------
+1. Read the documentation files
+2. Understand the architecture and data flow
+3. Run diagnostic tests to identify the issue
+4. Compare working vs broken code
+5. Identify the specific problem
+6. Provide a fix with explanation
+
+
+KEY ENDPOINTS TO TEST:
+----------------------
+GET  /api/v1/behavior/health/
+GET  /api/v1/behavior/sample-sessions/?n=30
+POST /api/v1/behavior/score/
+GET  /api/v1/risk-decision/health/
+GET  /api/v1/risk-decision/sample-events/
+POST /api/v1/risk-decision/analyze/
+
+
+EXPECTED OUTCOME:
+-----------------
+After the fix:
+1. User clicks "Score Session" or "Run Analysis" button
+2. Loading spinner appears
+3. API call completes successfully
+4. Results display in the UI:
+   - Decision/verdict badge (ALLOW/MONITOR/ESCALATE/BLOCK or LOW/MEDIUM/HIGH/CRITICAL)
+   - Scores and metrics
+   - Analysis details
+   - No errors in console
+
+
+===============================================================================
+END OF FILE LIST
+===============================================================================

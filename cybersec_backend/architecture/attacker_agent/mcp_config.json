@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "attack_injector": {
+      "command": "python",
+      "args": [
+        "-m",
+        "architecture.attacker_agent.mcp_servers.attack_injector.server"
+      ],
+      "env": {
+        "PYTHONPATH": "."
+      },
+      "description": "Attack pattern generation and injection"
+    }
+  },
+  "sharedServers": {
+    "event_storage": {
+      "source": "data_agent",
+      "description": "Shared event storage from data_agent"
+    }
+  }
+}
