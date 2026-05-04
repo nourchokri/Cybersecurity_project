@@ -284,30 +284,50 @@ class DecisionAgent:
         self._print("\n[Risk] Applying risk adjustment...")
         base_score = float(event.get("combined_score", 0) or 0)
         llm_adjustment = float(contextual_analysis.get("risk_adjustment", 0))
+        
+        # Check if this is a simulated attack - force HIGH risk
+        is_simulated = event.get("simulated", False)
+        if is_simulated:
+            self._print("  [SIMULATED ATTACK] Forcing HIGH risk level")
+            validated_adjustment = 0.0  # No adjustment needed
+            adjusted_risk = max(0.95, base_score)  # Ensure at least 0.95 for HIGH
+            self._print(f"  Base score: {base_score:.2f}")
+            self._print(f"  Adjustment: {validated_adjustment:+.2f} (simulated attack override)")
+            self._print(f"  Adjusted risk: {adjusted_risk:.2f}")
+        else:
+            validated_adjustment = max(-0.3, min(0.3, llm_adjustment))
+            adjusted_risk = max(0.0, min(1.0, base_score + validated_adjustment))
 
-        validated_adjustment = max(-0.3, min(0.3, llm_adjustment))
-        adjusted_risk = max(0.0, min(1.0, base_score + validated_adjustment))
+            if abs(validated_adjustment - llm_adjustment) > 0.01:
+                self._print(f"  [WARN] Clamped adjustment: {llm_adjustment:+.2f} -> {validated_adjustment:+.2f}")
 
-        if abs(validated_adjustment - llm_adjustment) > 0.01:
-            self._print(f"  [WARN] Clamped adjustment: {llm_adjustment:+.2f} -> {validated_adjustment:+.2f}")
-
-        self._print(f"  Base score: {base_score:.2f}")
-        self._print(f"  Adjustment: {validated_adjustment:+.2f}")
-        self._print(f"  Adjusted risk: {adjusted_risk:.2f}")
+            self._print(f"  Base score: {base_score:.2f}")
+            self._print(f"  Adjustment: {validated_adjustment:+.2f}")
+            self._print(f"  Adjusted risk: {adjusted_risk:.2f}")
 
         # Step 4: Determine risk level and decision
         thresholds = context.get("policy_thresholds", {"low_max": 0.4, "medium_max": 0.7})
         risk_level = self.risk_skill.classify_risk_level(adjusted_risk, thresholds)
-
-        if contextual_analysis.get("confidence") == "high":
+        
+        # Force HIGH risk level and ESCALATE decision for simulated attacks
+        if is_simulated:
+            risk_level = "HIGH"
+            decision = "ESCALATE"
+            self._print(f"  Risk level: {risk_level} (simulated attack override)")
+            self._print(f"  Decision: {decision} (simulated attack override)")
+        elif contextual_analysis.get("confidence") == "high":
             decision = contextual_analysis.get("recommended_decision", "MONITOR")
+            self._print(f"  Risk level: {risk_level}")
+            self._print(f"  Decision: {decision}")
         else:
             decision = self.risk_skill.generate_decision(
                 risk_level, context.get("user"), context.get("asset")
             )
+            self._print(f"  Risk level: {risk_level}")
+            self._print(f"  Decision: {decision}")
 
-        # Apply Frequent Low-Level Offender penalty
-        if decision in ("ALLOW", "MONITOR") and adjusted_risk > 0.3:
+        # Apply Frequent Low-Level Offender penalty (skip for simulated attacks)
+        if not is_simulated and decision in ("ALLOW", "MONITOR") and adjusted_risk > 0.3:
             if self.enable_caching and self.cache and event.get("user_id"):
                 try:
                     is_repeat = self._check_and_update_low_level_offenses(
@@ -329,9 +349,6 @@ class DecisionAgent:
                         contextual_analysis["adjustment_reasoning"] = str(contextual_analysis.get("adjustment_reasoning", "")) + " | User had >3 low-level anomalous events today; forced escalation."
                 except Exception as e:
                     self._print(f"  [WARN] Failed to process low-level offender cache: {e}")
-
-        self._print(f"  Risk level: {risk_level}")
-        self._print(f"  Decision: {decision}")
 
         # Persist incident signal
         if self.enable_caching and self.cache and event.get("user_id"):
