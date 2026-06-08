@@ -1,6 +1,6 @@
 {
-  "total_attacks_injected": 52,
-  "last_attack_time": "2026-05-04T02:02:45.441901",
+  "total_attacks_injected": 53,
+  "last_attack_time": "2026-05-06T21:00:35.838935",
   "recent_attack_ids": [
     "cert_r42_s1_aam0658",
     "cert_r42_s3_bss0369",
@@ -44,6 +44,7 @@
     "cert_r42_s1_aam0658",
     "cert_r42_s1_aam0658",
     "cert_r42_s1_bdv0168",
+    "cert_r42_s1_aam0658",
     "cert_r42_s1_aam0658"
   ]
 }

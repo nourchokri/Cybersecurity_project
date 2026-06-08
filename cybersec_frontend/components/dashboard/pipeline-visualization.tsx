@@ -10,7 +10,6 @@ import {
   AlertTriangle, 
   Swords,
   Shield,
-  FileText,
   CheckCircle2,
   Loader2,
   Clock,
@@ -23,7 +22,6 @@ const agentIcons = {
   "risk-behavior-agent": AlertTriangle,
   "attacker-agent": Swords,
   "response-agent": Shield,
-  "reporting-agent": FileText,
 }
 
 const statusConfig: Record<AgentStatus, { 
@@ -168,7 +166,7 @@ export function PipelineVisualization({ agentStatuses, pipelineSource = "data-ag
   const attackerAgent = agents.find(a => a.slug === "attacker-agent")!
   
   // Downstream agents (after the source)
-  const downstreamSlugs = ["behavior-agent", "risk-behavior-agent", "response-agent", "reporting-agent"]
+  const downstreamSlugs = ["behavior-agent", "risk-behavior-agent", "response-agent"]
   const downstreamAgents = downstreamSlugs.map(slug => agents.find(a => a.slug === slug)!).filter(Boolean)
 
   const isDataActive = pipelineSource === "data-agent"

@@ -9,7 +9,6 @@ import {
   Brain, 
   AlertTriangle, 
   Shield, 
-  FileText,
   Activity,
   Swords
 } from "lucide-react"
@@ -21,7 +20,6 @@ const navItems = [
   { name: "Behavior Agent", href: "/agents/behavior-agent", icon: Brain },
   { name: "Risk Agent", href: "/agents/risk-behavior-agent", icon: AlertTriangle },
   { name: "Response Agent", href: "/agents/response-agent", icon: Shield },
-  { name: "Reporting Agent", href: "/agents/reporting-agent", icon: FileText },
 ]
 
 export function Sidebar() {
@@ -36,7 +34,7 @@ export function Sidebar() {
             <Activity className="h-5 w-5 text-white" />
           </div>
           <div className="flex flex-col">
-            <span className="font-mono text-sm font-bold uppercase tracking-wider text-sidebar-foreground">CYBER AI</span>
+            <span className="font-mono text-sm font-bold uppercase tracking-wider text-sidebar-foreground">CYREN</span>
             <span className="font-mono text-xs uppercase tracking-wide text-muted-foreground">Pipeline v2.1</span>
           </div>
         </div>

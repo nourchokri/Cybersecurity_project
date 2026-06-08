@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Cyber AI Pipeline | Security Dashboard',
+  title: 'CYREN Pipeline | Security Dashboard',
   description: 'Multi-agent cybersecurity pipeline dashboard for real-time threat detection and response',
   generator: 'v0.app',
   icons: {
