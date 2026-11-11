@@ -1,4 +1,4 @@
-# Cybersecurity Multi-Agent SOC Platform
+# Cybersecurity Multi--Agent SOC Platform
 
 An AI-powered multi-agent Security Operations Center (SOC) platform for real-time insider threat detection, behavioral anomaly analysis, risk assessment, and automated incident response. Built with **Django**, **Next.js**, **Llama 3.1 LLM**, **LangGraph**, **Isolation Forest ML**, and **Reinforcement Learning**.
 
