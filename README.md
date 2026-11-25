@@ -16,10 +16,6 @@ An AI-powered multi-agent Security Operations Center (SOC) platform for real-tim
 ## Overview
 
 
----
-
-## Overview
-
 This project was developed as part of the **4th-year Integrated Project** at [Esprit School of Engineering](https://esprit.tn). It explores the design and implementation of a **multi-agent cybersecurity pipeline** that leverages artificial intelligence and machine learning to detect, analyze, and respond to insider threats and cyberattacks in real time.
 
 The platform chains **5 specialized AI agents** in a sequential pipeline, each responsible for a distinct phase of the security operations workflow — from data collection to automated response. Unlike traditional SIEM tools that rely on static rules, our system combines **statistical anomaly detection** (Isolation Forest), **LLM-powered contextual reasoning** (Llama 3.1), and **Reinforcement Learning** (Q-Learning) to make intelligent, context-aware security decisions — with a human-in-the-loop when needed.
