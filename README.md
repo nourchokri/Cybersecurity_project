@@ -1,9 +1,19 @@
+# CYREN – Cybersecurity Multi-Agent SOC Platform
+
+> 🏆 1st place – ESPRIT Incubator Competition 2026
+
+An AI-powered multi-agent Security Operations Center (SOC) platform for real-time insider threat detection, behavioral anomaly analysis, risk assessment, and automated incident response. Built with **Django**, **Next.js**, **Llama 3.1 LLM**, **LangGraph**, **Isolation Forest ML**, and **Reinforcement Learning**.
 <img width="1280" height="920" alt="image" src="https://github.com/user-attachments/assets/8dd2d0f9-e7d4-4545-a860-091fea07939a" />
+
 <p align="center">
   <a href="https://drive.google.com/file/d/1qwnnnbJCSxHWXW4Qbcu4GefZcs7RSq-8/view?usp=sharing" target="_blank">
     <img src="https://img.shields.io/badge/▶_Watch_Commercial_&_Demo_Video-Google_Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white" alt="Watch CYREN Commercial Video" />
   </a>
 </p>
+
+---
+
+## Overview
 
 
 ---
